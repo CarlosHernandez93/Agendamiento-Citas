@@ -16,8 +16,30 @@
   }
 } 
 
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #888;
+  border-radius: 2px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #000;
+  border-radius: 2px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 body {
-  background-color: fff;
+  background-color: rgb(240, 240, 240);
   display: grid;
   place-items: center;
   margin: 0;

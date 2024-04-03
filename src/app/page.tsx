@@ -4,12 +4,10 @@ import SelectSpecealist from "@/components/SelectedSpecealist";
 
 export default function Home() {
   return (
-    <main className="w-full px-20">
-      <section className="grid grid-cols-3 rounded-3xl py-10 shadow-2xl">
+    <main className="w-[80%] grid grid-cols-3 rounded-3xl shadow-2xl bg-white h-[70%]">
         <SelectSpecealist/>
         <Calendar/>
         <SelectSchedule/>
-      </section>
     </main>
   );
 }
