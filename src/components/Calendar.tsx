@@ -61,7 +61,10 @@ export default function Calendar(){
                         */
                     }
                     <button 
-                        onClick={() => {previousMonth({month: date.month, year: date.year})}}
+                        onClick={() => {
+                            previousMonth({month: date.month, year: date.year})
+                            changeOtherSelectDay(null, null)
+                        }}
                         className='text-center'
                     >
                         <svg 
@@ -74,7 +77,10 @@ export default function Calendar(){
                         </svg>  
                     </button>
                     <button 
-                        onClick={() => {nextMonth({month: date.month, year: date.year})}}
+                        onClick={() => {
+                            nextMonth({month: date.month, year: date.year})
+                            changeOtherSelectDay(null, null)
+                        }}
                         className='text-center'
                     >
                         <svg 
@@ -111,7 +117,6 @@ export default function Calendar(){
                                         validateSelectedDate = new Date(date.year,date.month,parseInt(day))
                                         selectDay = isSelectedDay.selectedRow === rowIndex && isSelectedDay.selectedColumn === columnIndex
                                         selectDayStyles = selectDay ? 'bg-blue-400 text-white' : 'bg-gray-200 text-black'
-
                                         if(
                                             (validateSelectedDate.getDate() === validateCurrentDate.getDate()) && 
                                             (validateSelectedDate.getMonth() === validateCurrentDate.getMonth()) && 
