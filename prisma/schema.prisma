@@ -12,3 +12,24 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Pyschologist {
+  id Int @id
+  name String
+  appointments Appointments[]
+}
+
+model AvailableSchedules{
+  id Int @id @default(autoincrement())
+  schedule String
+  appointments Appointments[]
+}
+
+model Appointments{
+  id Int @id @default(autoincrement())
+  dateAppointment DateTime
+  pyschologist Pyschologist @relation(fields: [pyschologistId], references: [id])
+  pyschologistId Int
+  timeDate AvailableSchedules @relation(fields: [availableScheduleId], references: [id])
+  availableScheduleId Int
+}

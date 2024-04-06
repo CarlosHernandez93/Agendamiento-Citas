@@ -1,5 +1,5 @@
 'use client'
-import { specealist } from "@/api/infoDB"
+import { specealist } from "@/apiss/infoDB"
 import { useSelectedSchedule } from "@/hooks/useSelectedSchedule"
 
 export default function SelectSchedule(){

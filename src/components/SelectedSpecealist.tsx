@@ -1,5 +1,5 @@
 'use client'
-import { specealist } from "@/api/infoDB"
+import { specealist } from "@/apiss/infoDB"
 import { useSelectedSpecealist } from "@/hooks/useSelectedSpecealist"
 
 export default function SelectSpecealist(){
