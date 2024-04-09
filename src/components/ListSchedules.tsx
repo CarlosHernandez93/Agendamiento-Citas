@@ -1,7 +1,7 @@
-'use client'
 import { useSelectedSchedule } from "@/hooks/useSelectedSchedule"
 import { useChangeMonth } from "@/hooks/useChangeMonth"
-import { useEffect } from "react"
+import { useContext } from "react"
+import { AppointmentContext } from "@/context/appointment"
 
 type TypeJson = {
     id: string,
@@ -14,15 +14,10 @@ type TypeList = {
 
 export default function ListSchedules(listSchedules:TypeList){
     const {isSelectedSchedule, changeOtherSelectSchedule} = useSelectedSchedule()
-    const {date } = useChangeMonth()
-
+    const appointmentContext = useContext(AppointmentContext)
     let classNameItem: string
     let classNamePoint: string
     const list:TypeJson[] = listSchedules.listSchedules
-
-    useEffect(()=>{
-        console.log(`Cambio date -> ${date.month}`)
-    },[date])
 
     return(
         <>
@@ -42,6 +37,7 @@ export default function ListSchedules(listSchedules:TypeList){
                             className={classNameItem}
                             onClick={() => {
                                 changeOtherSelectSchedule(schedule.id)
+                                console.log(appointmentContext)
                             }}
                         >
                             <span>{schedule.schedule}</span>

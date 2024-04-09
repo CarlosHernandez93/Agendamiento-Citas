@@ -1,4 +1,3 @@
-'use client'
 import { useSelectedSpecealist } from "@/hooks/useSelectedSpecealist"
 
 type TypeJson = {
@@ -25,7 +24,10 @@ export default function ListPsychologist(listPsychologist:TypeList){
                     <li 
                         key={psychologist.id} 
                         className={className}
-                        onClick={() => {changeOtherSelectSpecealist(psychologist.id)}}
+                        onClick={() => {
+                            console.log(psychologist.id)
+                            changeOtherSelectSpecealist(psychologist.id)
+                        }}
                     >
                         <span>{psychologist.name}</span>
                     </li>

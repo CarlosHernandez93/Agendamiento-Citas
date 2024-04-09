@@ -1,6 +1,4 @@
-'use client'
 import {useChangeMonth} from '../hooks/useChangeMonth'
-import ChangeMonthButton from './ChangeMonthButton';
 import { useSelectedDay } from '@/hooks/useSelectedDay';
 
 export default function Calendar(){
@@ -55,11 +53,6 @@ export default function Calendar(){
                     <span className="text-gray-500">{currentYear}</span>
                 </h2>
                 <div className="flex items-center gap-3">
-                    {   /*
-                        <ChangeMonthButton nameAction='prev' action={previousMonth({month: date.month, year: date.year})}></ChangeMonthButton>
-                        <ChangeMonthButton nameAction='next' action={nextMonth({month: date.month, year: date.year})}></ChangeMonthButton>
-                        */
-                    }
                     <button 
                         onClick={() => {
                             previousMonth({month: date.month, year: date.year})
