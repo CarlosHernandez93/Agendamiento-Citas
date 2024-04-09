@@ -27,7 +27,6 @@ export default function ListPsychologist(listPsychologist:TypeList){
                         key={psychologist.id} 
                         className={className}
                         onClick={() => {
-                            console.log(psychologist.id)
                             changeOtherSelectSpecealist(psychologist.id)
                         }}
                     >

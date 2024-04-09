@@ -1,14 +1,17 @@
-export default function Modal(){
+import { Modal } from 'react-responsive-modal';
+import 'react-responsive-modal/styles.css';
+import { useContext } from "react"
+import { AppointmentContext } from "@/context/appointment"
+
+export default function CoustumModal(){
+    const {open, onOpenModal}= useContext(AppointmentContext)
     return(
-        <div 
-            className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center"
-        >
-            <div className="w-[600px]">
-                <button className="text-white text-xl">X</button>
-                <div className="bg-white p-2 rounded">
-                    Modal
-                </div>
+        <Modal open={open} onClose={onOpenModal} center>
+            <h2 className='text-xl font-bold mb-2'>Confirmacion</h2>
+            <p className='mb-3'>¿Estas seguro de agendar la cita?</p>
+            <div className='flex justify-center'>
+                <button className='bg-blue-400 text-white font-bold p-1 rounded'>Aceptar</button>
             </div>
-        </div>
+        </Modal>
     )
 }

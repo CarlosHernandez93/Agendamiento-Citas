@@ -11,7 +11,7 @@ type TypeList = {
 }
 
 export default function ListSchedules(listSchedules:TypeList){
-    const {isSelectedSchedule, changeOtherSelectSchedule}= useContext(AppointmentContext)
+    const {isSelectedSchedule, changeOtherSelectSchedule, onOpenModal, open}= useContext(AppointmentContext)
     let classNameItem: string
     let classNamePoint: string
     const list:TypeJson[] = listSchedules.listSchedules
@@ -34,6 +34,7 @@ export default function ListSchedules(listSchedules:TypeList){
                             className={classNameItem}
                             onClick={() => {
                                 changeOtherSelectSchedule(schedule.id)
+                                onOpenModal(open)
                             }}
                         >
                             <span>{schedule.schedule}</span>
