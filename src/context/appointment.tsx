@@ -2,28 +2,30 @@ import {createContext } from "react";
 import { useChangeMonth } from "@/hooks/useChangeMonth";
 import { useSelectedSpecealist } from "@/hooks/useSelectedSpecealist";
 import { useSelectedSchedule } from "@/hooks/useSelectedSchedule";
+import { useSelectedDay } from "@/hooks/useSelectedDay";
 
-type DateType = {
-    month: number,
-    year: number
-}
-
-type AppointmentContextType = {
-    date: DateType,
-    isSelectedSpecealist: string | null,
-    isSelectedSchedule: string |null
-}
-
-export const AppointmentContext = createContext<AppointmentContextType | null>(null)
+export const AppointmentContext = createContext()
 
 export function AppointmentProvider({children}:any){
 
-    const {date} = useChangeMonth()
-    const {isSelectedSpecealist} = useSelectedSpecealist()
-    const {isSelectedSchedule} = useSelectedSchedule()
+    const {date, nextMonth, previousMonth} = useChangeMonth()
+    const {isSelectedSpecealist, changeOtherSelectSpecealist} = useSelectedSpecealist()
+    const {isSelectedSchedule, changeOtherSelectSchedule} = useSelectedSchedule()
+    const {isSelectedDay, changeOtherSelectDay} = useSelectedDay()
 
     return(
-        <AppointmentContext.Provider value={{date, isSelectedSchedule, isSelectedSpecealist}}>
+        <AppointmentContext.Provider value={{
+                date, 
+                nextMonth, 
+                previousMonth,
+                isSelectedSchedule, 
+                changeOtherSelectSpecealist, 
+                isSelectedSpecealist, 
+                changeOtherSelectSchedule,
+                isSelectedDay, 
+                changeOtherSelectDay
+            }}
+        >
             {children}
         </AppointmentContext.Provider>
     )

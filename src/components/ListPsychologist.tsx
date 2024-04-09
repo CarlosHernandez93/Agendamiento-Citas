@@ -1,4 +1,6 @@
 import { useSelectedSpecealist } from "@/hooks/useSelectedSpecealist"
+import { useContext } from "react"
+import { AppointmentContext } from "@/context/appointment"
 
 type TypeJson = {
     id: string,
@@ -10,7 +12,7 @@ type TypeList = {
 }
 
 export default function ListPsychologist(listPsychologist:TypeList){
-    const {isSelectedSpecealist,changeOtherSelectSpecealist} = useSelectedSpecealist()
+    const {isSelectedSpecealist, changeOtherSelectSpecealist} = useContext(AppointmentContext)
     let className: string
     const list: TypeJson[]= listPsychologist.listPsychologist
     return (

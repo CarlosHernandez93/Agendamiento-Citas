@@ -1,5 +1,3 @@
-import { useSelectedSchedule } from "@/hooks/useSelectedSchedule"
-import { useChangeMonth } from "@/hooks/useChangeMonth"
 import { useContext } from "react"
 import { AppointmentContext } from "@/context/appointment"
 
@@ -13,8 +11,7 @@ type TypeList = {
 }
 
 export default function ListSchedules(listSchedules:TypeList){
-    const {isSelectedSchedule, changeOtherSelectSchedule} = useSelectedSchedule()
-    const appointmentContext = useContext(AppointmentContext)
+    const {isSelectedSchedule, changeOtherSelectSchedule}= useContext(AppointmentContext)
     let classNameItem: string
     let classNamePoint: string
     const list:TypeJson[] = listSchedules.listSchedules
@@ -37,7 +34,6 @@ export default function ListSchedules(listSchedules:TypeList){
                             className={classNameItem}
                             onClick={() => {
                                 changeOtherSelectSchedule(schedule.id)
-                                console.log(appointmentContext)
                             }}
                         >
                             <span>{schedule.schedule}</span>

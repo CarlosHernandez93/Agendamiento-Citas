@@ -1,10 +1,8 @@
-import {useChangeMonth} from '../hooks/useChangeMonth'
-import { useSelectedDay } from '@/hooks/useSelectedDay';
+import { useContext } from "react"
+import { AppointmentContext } from "@/context/appointment"
 
 export default function Calendar(){
-    const {date, nextMonth, previousMonth} = useChangeMonth()
-    const {isSelectedDay, changeOtherSelectDay} = useSelectedDay()
-
+    const {date, nextMonth, previousMonth, isSelectedDay, changeOtherSelectDay, changeOtherSelectSpecealist, changeOtherSelectSchedule} = useContext(AppointmentContext)
     const currentDate: Date = new Date(date.year, date.month);
     const currentNameMonth: string = new Intl.DateTimeFormat('es-ES', { month: 'long'}).format(currentDate);
     const currentYear: number = date.year;
@@ -57,6 +55,8 @@ export default function Calendar(){
                         onClick={() => {
                             previousMonth({month: date.month, year: date.year})
                             changeOtherSelectDay(null, null)
+                            changeOtherSelectSpecealist(null)
+                            changeOtherSelectSchedule(null)
                         }}
                         className='text-center'
                     >
@@ -73,6 +73,8 @@ export default function Calendar(){
                         onClick={() => {
                             nextMonth({month: date.month, year: date.year})
                             changeOtherSelectDay(null, null)
+                            changeOtherSelectSpecealist(null)
+                            changeOtherSelectSchedule(null)
                         }}
                         className='text-center'
                     >
